@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package anedya.v1.datamanagement;
+
+option go_package = "anedya-device-ops/proto/definitions/datamanagement;datamanagement";
+
+service DataManagementService {
+    rpc SubmitData(SubmitDataRequest) returns (GenericResponse) {}
+}
+
+message SubmitDataRequest {
+    repeated NodeData data = 1;
+}
+
+message NodeData {
+    string               node_id    = 1;
+    repeated VariableData datapoints = 2;
+}
+
+message VariableData {
+    string variable = 1;
+    oneof datapoints_type {
+        FloatDatapoints  float_datapoints  = 2;
+        GeoDatapoints    geo_datapoints    = 3;
+        StatusDatapoints status_datapoints = 4;
+    }
+}
+
+message FloatDatapoints {
+    repeated FloatDatapoint datapoints = 1;
+}
+
+message FloatDatapoint {
+    int64  timestamp = 1;
+    double value     = 2;
+}
+
+message GeoDatapoints {
+    repeated GeoDatapoint datapoints = 1;
+}
+
+message GeoDatapoint {
+    int64         timestamp = 1;
+    GeoCoordinate value     = 2;
+}
+
+message GeoCoordinate {
+    double latitude  = 1;
+    double longitude = 2;
+    // double altitude  = 3;
+}
+
+message StatusDatapoints {
+    repeated StatusDatapoint datapoints = 1;
+}
+
+message StatusDatapoint {
+    int64  timestamp = 1;
+    string value     = 2;
+}
+
+message GenericResponse {
+    bool   success       = 1;
+    string error_message = 2;
+    string reason_code   = 3;
+}
