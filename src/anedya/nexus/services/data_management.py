@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any
 
-from anedya.sdk.models.common import VariableReading
+from anedya.nexus.models.common import VariableReading
 
 if TYPE_CHECKING:
-    from anedya.sdk._transport.grpc import GrpcTransport
-    from anedya.sdk._transport.http import HttpTransport
+    from ..grpc import GrpcTransport
+    from ..http import HttpTransport
 
 # Must match the proto package + service name in data_management.proto
 _SERVICE = "anedya.v1.datamanagement.DataManagementService"
@@ -43,7 +43,7 @@ class DatamanagementService:
         GenericResponse
             Protobuf response containing success, error_message, and reason_code.
         """
-        from anedya.sdk._generated.anedya.v1 import data_management_pb2  # type: ignore[import-untyped]
+        from anedya.nexus._generated.anedya.v1 import data_management_pb2  # type: ignore[import-untyped]
 
         if data is None:
             raise ValueError("No data provided to submit_data.")

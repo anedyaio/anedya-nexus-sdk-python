@@ -1,6 +1,6 @@
 """Services."""
 
-from anedya.sdk.services.data_management import DatamanagementService
+from anedya.nexus.services.data_management import DatamanagementService
 
 # Backward compatibility alias
 IngestService = DatamanagementService

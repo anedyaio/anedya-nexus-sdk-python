@@ -3,8 +3,8 @@
 import grpc
 from google.protobuf.message import Message as ProtoMessage
 
-from anedya.sdk.config import ClientConfig
-from anedya.sdk.errors import ConnectionError, TransportError
+from .config import ClientConfig
+from .errors import ConnectionError, TransportError
 
 
 class GrpcTransport:

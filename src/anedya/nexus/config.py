@@ -1,4 +1,4 @@
-"""Configuration for the Anedya SDK."""
+"""Configuration for the Anedya Nexus SDK."""
 
 import os
 from dataclasses import dataclass, field

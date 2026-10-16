@@ -17,10 +17,10 @@ Usage::
         client.data_management.submit_data([...])
 """
 
-from anedya.sdk._transport.grpc import GrpcTransport
-from anedya.sdk._transport.http import HttpTransport
-from anedya.sdk.config import ClientConfig
-from anedya.sdk.services.data_management import DatamanagementService
+from .grpc import GrpcTransport
+from .http import HttpTransport
+from .config import ClientConfig
+from .services.data_management import DatamanagementService
 
 
 class AnedyaClient:

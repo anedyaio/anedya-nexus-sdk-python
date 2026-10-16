@@ -1,1 +1,0 @@
-"""Anedya — Official Python SDK."""

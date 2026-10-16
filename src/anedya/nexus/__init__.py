@@ -1,8 +1,8 @@
-"""Anedya SDK for Python.
+"""Anedya Nexus SDK for Python.
 
 Usage::
 
-    from anedya.sdk import AnedyaClient, VariableReading
+    from anedya.nexus import AnedyaClient, VariableReading
 
     with AnedyaClient(api_key="your-key") as client:
         client.data_management.submit_data([
@@ -10,10 +10,10 @@ Usage::
         ])
 """
 
-from anedya.sdk.client import AnedyaClient
-from anedya.sdk.config import ClientConfig
-from anedya.sdk.errors import AnedyaError, AuthenticationError, ConnectionError, TimeoutError, TransportError
-from anedya.sdk.models.common import GeoData, VariableReading
+from .client import AnedyaClient
+from .config import ClientConfig
+from .errors import AnedyaError, AuthenticationError, ConnectionError, TimeoutError, TransportError
+from .models.common import GeoData, VariableReading
 
 __all__ = [
     "AnedyaClient",
